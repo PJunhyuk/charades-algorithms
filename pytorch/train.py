@@ -71,7 +71,8 @@ class Trainer():
         model.train()
         optimizer.zero_grad()
 
-        def part(x): return itertools.islice(x, int(len(x)*args.train_size))
+        def part(x):
+            return itertools.islice(x, int(len(x)*args.train_size))
         end = time.time()
         for i, (input, target, meta) in enumerate(part(loader)):
             data_time.update(time.time() - end)

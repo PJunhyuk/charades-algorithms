@@ -40,4 +40,4 @@ class Tee(object):
         stderr_logger = logging.getLogger('STDERR')
         sl = StreamToLogger(sys.stderr, stderr_logger, logging.ERROR)
         sys.stderr = sl
-        print "Logging to file {}".format(filename)
+        print("Logging to file {}".format(filename))

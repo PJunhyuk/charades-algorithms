@@ -2,3 +2,8 @@ gen/
 libnccl.so
 model_best.t7
 checkpoints
+
+pytorch/Charades_v1_test.csv
+pytorch/Charades_v1_train.csv
+pytorch/rgbnet/
+pytorch/exp/rgbnet/

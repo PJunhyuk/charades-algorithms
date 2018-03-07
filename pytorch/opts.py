@@ -54,7 +54,8 @@ def parse():
     parser.add_argument('--accum-grad', default=4, type=int)
     args = parser.parse_args()
     args.distributed = args.world_size > 1
-    args.cache = args.cache_dir+args.name+'/'
+    # args.cache = args.cache_dir+args.name+'/'
+    args.cache = args.name+'/'
     if not os.path.exists(args.cache):
         os.makedirs(args.cache)
 

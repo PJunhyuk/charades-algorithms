@@ -6,7 +6,7 @@ from PIL import Image
 import numpy as np
 from glob import glob
 import csv
-import cPickle as pickle
+import _pickle as pickle
 import os
 
 
@@ -89,7 +89,7 @@ class Charades(data.Dataset):
         datadir = path
         image_paths, targets, ids = [], [], []
 
-        for i, (vid, label) in enumerate(labels.iteritems()):
+        for i, (vid, label) in enumerate(labels.items()):
             iddir = datadir + '/' + vid
             lines = glob(iddir+'/*.jpg')
             n = len(lines)
