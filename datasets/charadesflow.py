@@ -1,8 +1,12 @@
 """ Dataset loader for the Charades dataset """
 import torch
 import torchvision.transforms as transforms
-import transforms as arraytransforms
+import torchvision.transforms as arraytransforms
+
+import sys
+sys.path.append("D:\workspace-code\PJunhyuk\charades-algorithms\pytorch\datasets")
 from charadesrgb import Charades, cls2int
+
 from PIL import Image
 import numpy as np
 from glob import glob
@@ -35,14 +39,14 @@ def default_loader(path):
 class Charadesflow(Charades):
     def __init__(self, *args, **kwargs):
         super(Charadesflow,self).__init__(*args, **kwargs)
-        
+
     def prepare(self, path, labels, split):
         FPS, GAP, testGAP = 24, 4, 25
         STACK=10
         datadir = path
         image_paths, targets, ids = [], [], []
 
-        for i, (vid, label) in enumerate(labels.iteritems()):
+        for i, (vid, label) in enumerate(labels.items()):
             iddir = datadir + '/' + vid
             lines = glob(iddir+'/*.jpg')
             n = len(lines)/2
@@ -63,7 +67,7 @@ class Charadesflow(Charades):
                     ids.append(vid)
             else:
                 for x in label:
-                    for ii in range(0, n-1, GAP):
+                    for ii in range(0, int(n)-1, GAP):
                         if x['start'] < ii/float(FPS) < x['end']:
                             if ii>n-1-STACK-1: continue  # fit 10 optical flow pairs
                             impath = '{}/{}-{:06d}x.jpg'.format(

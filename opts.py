@@ -6,7 +6,7 @@ import os
 def parse():
     print('parsing arguments')
     parser = argparse.ArgumentParser(description='PyTorch Charades Training')
-    parser.add_argument('--data', metavar='DIR', default='/scratch/gsigurds/Charades_v1_rgb/',
+    parser.add_argument('--data', metavar='DIR', default='/workspace-dataset/charades/Charades_v1_rgb/',
                         help='path to dataset')
     parser.add_argument('--dataset', metavar='DIR', default='fake',
                         help='name of dataset under datasets/')
@@ -14,7 +14,7 @@ def parse():
     parser.add_argument('--val-file', default='./Charades_v1_test.csv', type=str)
     parser.add_argument('--arch', '-a', metavar='ARCH', default='alexnet',
                         help='model architecture: ')
-    parser.add_argument('-j', '--workers', default=4, type=int, metavar='N',
+    parser.add_argument('-j', '--workers', default=0, type=int, metavar='N',
                         help='number of data loading workers (default: 4)')
     parser.add_argument('--epochs', default=20, type=int, metavar='N',
                         help='number of total epochs to run')
@@ -54,9 +54,10 @@ def parse():
     parser.add_argument('--accum-grad', default=4, type=int)
     args = parser.parse_args()
     args.distributed = args.world_size > 1
-    # args.cache = args.cache_dir+args.name+'/'
-    args.cache = args.name+'/'
+    args.cache = args.cache_dir+args.name+'/'
+    # args.cache = args.name+'/'
     if not os.path.exists(args.cache):
         os.makedirs(args.cache)
+    print(args.cache)
 
     return args

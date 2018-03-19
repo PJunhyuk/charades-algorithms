@@ -3,7 +3,23 @@ libnccl.so
 model_best.t7
 checkpoints
 
-pytorch/Charades_v1_test.csv
-pytorch/Charades_v1_train.csv
-pytorch/rgbnet/
-pytorch/exp/rgbnet/
+# for pytorch gitignore
+
+gen/
+checkpoints/
+*.pyc
+*.swp
+
+## from get_alreadytrained.sh
+twostream_rgb.pth.tar
+twostream_flow.pth
+vgg16flow_ucf101.pth
+resnet_rgb.pth.tar
+inception_rgb.pth.tar
+
+Charades_v1_test.csv
+Charades_v1_train.csv
+
+flownet/
+
+rgbnet/

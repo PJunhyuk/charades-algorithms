@@ -36,8 +36,10 @@ def create_model(args):
         if hasattr(model, 'AuxLogits'):
             model.AuxLogits.fc = nn.Linear(model.AuxLogits.fc.in_features, args.nclass)
     else:
-        newcls = list(model.children())[:-1]
-        newcls = newcls[:-1] + [nn.Linear(newcls[-1].in_features, args.nclass).cuda()]
+        # newcls = list(model.children())[:-1]
+        newcls = list(model.children())
+        # newcls = newcls[:-1] + [nn.Linear(newcls[-1].in_features, args.nclass).cuda()]
+        newcls = newcls[:-1] + [nn.Linear(newcls[-1][1].in_features, args.nclass).cuda()]
         model = nn.Sequential(*newcls)
 
     if args.distributed:
