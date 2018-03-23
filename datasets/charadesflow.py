@@ -1,6 +1,11 @@
 """ Dataset loader for the Charades dataset """
 import torch
-import torchvision.transforms as transforms
+
+# import torchvision.transforms as transforms
+import sys
+sys.path.append("./libs")
+import transforms
+
 import torchvision.transforms as arraytransforms
 
 import sys
