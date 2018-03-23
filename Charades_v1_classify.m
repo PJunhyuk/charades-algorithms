@@ -6,13 +6,13 @@ function [rec_all,prec_all,ap_all,map]=Charades_v1_classify(clsfilename,gtpath)
 %    Output:        rec_all: recall
 %                  prec_all: precision
 %                    ap_all: AP for each class
-%                       map: MAP 
+%                       map: MAP
 %
 % Example:
 %
 %  [rec_all,prec_all,ap_all,map]=Charades_v1_classify('test_submission_classify.txt','Charades_v1_test.csv');
 %
-% Code adapted from THUMOS15 
+% Code adapted from THUMOS15
 %
 
 [gtids,gtclasses] = load_charades(gtpath);
@@ -124,6 +124,3 @@ for i=1:ntest
     gtids{i} = id;
     gtclasses{i} = cell2mat(classes);
 end
-
-
-

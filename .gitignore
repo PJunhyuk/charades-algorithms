@@ -17,9 +17,9 @@ vgg16flow_ucf101.pth
 resnet_rgb.pth.tar
 inception_rgb.pth.tar
 
+## csv files
 Charades_v1_test.csv
 Charades_v1_train.csv
 
-flownet/
-
-rgbnet/
+## cache
+cache/

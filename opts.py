@@ -2,6 +2,7 @@
 import argparse
 import os
 
+from datetime import datetime
 
 def parse():
     print('parsing arguments')
@@ -54,7 +55,10 @@ def parse():
     parser.add_argument('--accum-grad', default=4, type=int)
     args = parser.parse_args()
     args.distributed = args.world_size > 1
-    args.cache = args.cache_dir+args.name+'/'
+
+    now = datetime.now()
+    args.cache = args.cache_dir + args.name + '_' + str(now.year) + '_' + str(now.month) + '_' + str(now.day) + '_' + str(now.hour) + '_' + str(now.minute) + '_' + str(now.second) + '/'
+
     # args.cache = args.name+'/'
     if not os.path.exists(args.cache):
         os.makedirs(args.cache)
