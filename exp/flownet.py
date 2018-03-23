@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 if __name__ == '__main__':
 
+    import time
+
+    start = time.time()
+
     import sys
     #sys.path.insert(0, '..')
     sys.path.insert(0, '.')
@@ -18,9 +22,13 @@ if __name__ == '__main__':
         '--batch-size', '64',
         '--train-size', '0.2',
         '--val-size', '0.1',
-        '--cache-dir', './nfs.yoda/gsigurds/ai2/caches/',
+        # '--cache-dir', './nfs.yoda/gsigurds/ai2/caches/',
         '--pretrained',
         #'--evaluate',
     ]
     sys.argv.extend(args)
     main()
+
+    end = time.time()
+
+    print('Total required time: ' + str(end - start))

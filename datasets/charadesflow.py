@@ -4,7 +4,7 @@ import torchvision.transforms as transforms
 import torchvision.transforms as arraytransforms
 
 import sys
-sys.path.append("D:\workspace-code\PJunhyuk\charades-algorithms\pytorch\datasets")
+sys.path.append("D:\workspace-code\PJunhyuk\charades-algorithms\datasets")
 from charadesrgb import Charades, cls2int
 
 from PIL import Image

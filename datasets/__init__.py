@@ -8,6 +8,7 @@ import importlib
 
 
 def get_dataset(args):
+    print(args.dataset)
     dataset = importlib.import_module('.'+args.dataset, package='datasets')
     train_dataset, val_dataset, valvideo_dataset = dataset.get(args)
 

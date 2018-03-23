@@ -7,10 +7,18 @@ You have to download trained files.
 /pytorch$ ./get_alreadytrained.sh
 ```
 
-Run it!
+You have to fix routes to datasets folder in `datasets/charadesrgb.py` and `datasets/charadesflow.py`!  
+
+Train RGB!
 
 ```
-charades-algorithms> python exp/rgbnet.py
+charades-algorithms> python exp/rgbnet.py --data={PATH_TO_DATASET_FOLDER}
+```
+
+Train FLOW!
+
+```
+charades-algorithms> python exp/flownet.py --data={PATH_TO_DATASET_FOLDER}
 ```
 
 Contributor: Gunnar Atli Sigurdsson
