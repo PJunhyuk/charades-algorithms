@@ -85,8 +85,10 @@ class Charades(data.Dataset):
         self.target_transform = target_transform
         self.labels = parse_charades_csv(labelpath)
         self.root = root
-        cachename = '{}/{}_{}.pkl'.format(cachedir,
-                                          self.__class__.__name__, split)
+        # cachename = '{}/{}_{}.pkl'.format(cachedir,
+        #                                   self.__class__.__name__, split)
+        ## Use existing pkl files
+        cachename = '{}/{}_{}.pkl'.format(cachedir.split('_')[0] + '_pkl', self.__class__.__name__, split)
         self.data = cache(cachename)(self.prepare)(root, self.labels, split)
 
     def prepare(self, path, labels, split):
