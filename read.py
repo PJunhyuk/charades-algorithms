@@ -167,7 +167,7 @@ if __name__ == "__main__":
         for i, id in enumerate(video_id_list):
             action_list_time = read_actionlist_csv(id)
             save_video(id)
-            print("saving " + id + " (" + str(i+1) + ", " + str(len(video_id_list)) + ") ... " + "total " + str(time.time() - time_start)[:4] + "sec spent..")
+            print("saving " + id + " (" + str(i+1) + ", " + str(len(video_id_list)) + ") ... " + "total " + str(round(time.time() - time_start, 2)) + "sec spent..")
     else:
         action_list_time = read_actionlist_csv(video_id)
         if is_save == "True":
