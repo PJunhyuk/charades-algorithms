@@ -16,8 +16,10 @@ You have to download trained files.
 
 ```
 > bash
-/pytorch$ ./get_alreadytrained.sh
+/charades-algorithms$ ./get_alreadytrained.sh
 ```
+
+You have to download csv files from [Charades Data Set](https://allenai.org/plato/charades/) and locate it on `./` folder.  
 
 You have to fix routes to datasets folder in `datasets/charadesrgb.py` and `datasets/charadesflow.py`.  
 
@@ -44,6 +46,7 @@ charades-algorithms> python exp/rgbnet.py --pretrained-weights={PATH_TO_PRETRAIN
 #### Read results  
 
 Read and show specific video!
+> Save it at `D:/workspace-dataset/charades/Charades_v1_with_actions`. You have to fix location in `read.py`.  
 
 ```
 charades-algorithms> python read.py -id={VIDEO_ID}
