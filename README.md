@@ -23,6 +23,27 @@ You have to download csv files from [Charades Data Set](https://allenai.org/plat
 
 You have to fix routes to datasets folder in `datasets/charadesrgb.py` and `datasets/charadesflow.py`.  
 
+#### Show & Save video with labels  
+
+Show specific video!
+
+```
+charades-algorithms> python read.py -id={VIDEO_ID}
+```
+
+Save specific video!  
+> Save it at `D:/workspace-dataset/charades/Charades_v1_with_actions`. You have to fix location in `read.py`.  
+
+```
+charades-algorithms> python read.py -id={VIDEO_ID} -s=True
+```
+
+Save all video!  
+
+```
+charades-algorithms> python read.py -id=all
+```
+
 #### Train  
 
 Train RGB!
@@ -41,27 +62,6 @@ Test with pretrained-model!
 
 ```
 charades-algorithms> python exp/rgbnet.py --pretrained-weights={PATH_TO_PRETRAINED_WEIGHTS_FILE-~.pth.tar}
-```
-
-#### Read results  
-
-Read and show specific video!
-> Save it at `D:/workspace-dataset/charades/Charades_v1_with_actions`. You have to fix location in `read.py`.  
-
-```
-charades-algorithms> python read.py -id={VIDEO_ID}
-```
-
-Read and save specific video!  
-
-```
-charades-algorithms> python read.py -id={VIDEO_ID} -s=True
-```
-
-Read and save all video!  
-
-```
-charades-algorithms> python read.py -id=all
 ```
 
 ## Reference
